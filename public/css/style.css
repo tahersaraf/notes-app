@@ -1,0 +1,18 @@
+:root {
+    --background-color: rgb(39, 41, 55);
+    --bs-primary-rgb: rgb(255, 255, 255);
+    --bs-link-color: rgb(255, 255, 255);
+    --bs-link-hover-color: rgba(255, 255, 255, 0.525);
+}
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    background-color: var(--background-color);
+    color: var(--bs-primary-rgb);
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.container-fluid-custom {
+    max-width: 1600px;
+}
