@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg"
+  >
+    <a
+      href="/"
+      class="d-flex align-items-center mb-2 mb-lg-2.8 text-white fw-bold fs-2 text-decoration-none"
+    >
+    </a>
+
+    <div class="d-flex justify-content-between align-items-center pt-2 w-100">
+      <div class="w-25"></div>
+      <form
+        class="w-50"
+        role="search"
+        method="POST"
+        action="/dashboard/search"
+      >
+        <input
+          type="search"
+          name="searchTerm"
+          class="form-control form-control-md form-control-white text-bg-white"
+          placeholder="Search..."
+          aria-label="Search"
+        />
+      </form>
+      <div class="w-25 text-end">
+        <a href="/logout" type="button" class="btn btn-outline-light">Logout</a>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</div>
