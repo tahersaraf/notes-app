@@ -11,14 +11,16 @@ const MongoStore = require("connect-mongo");
 const app = express();
 const port = 3000 || process.env.PORT;
 
+const sessionStore = MongoStore.create({
+  mongoUrl: process.env.MONGODB_URI,
+});
+
 app.use(
   session({
     secret: "newsecret",
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,
-    }),
+    store: sessionStore,
     // cookie: { maxAge: new Date(Date.now() + 3600000) },
   })
 );
