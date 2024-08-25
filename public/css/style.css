@@ -65,3 +65,9 @@ body {
 .emoji-point-left:has(+ .btn:hover) {
     transform: translateX(-10px);
 }
+
+.breadcrumb-item+.breadcrumb-item::before {
+    color: #ffffff;
+    content: "/ ";
+    padding: 0 5px;
+}

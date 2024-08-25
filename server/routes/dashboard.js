@@ -12,10 +12,21 @@ router.get(
   isLoggedIn,
   dashboardController.dashboardViewNote
 );
-router.post(
+router.put(
   "/dashboard/item/:id",
   isLoggedIn,
   dashboardController.dashboardUpdateNote
+);
+router.delete(
+  "/dashboard/item-delete/:id",
+  isLoggedIn,
+  dashboardController.dashboardDeleteNote
+);
+router.get("/dashboard/add", isLoggedIn, dashboardController.dashboardAddNote);
+router.post(
+  "/dashboard/add",
+  isLoggedIn,
+  dashboardController.dashboardAddNoteSubmit
 );
 
 module.exports = router;
