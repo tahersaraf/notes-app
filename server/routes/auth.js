@@ -35,6 +35,9 @@ passport.use(
   )
 );
 
+/*
+  Route to Google login
+*/
 router.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["email", "profile"] })
@@ -48,16 +51,36 @@ router.get(
   })
 );
 
+/*
+  Login Failure
+*/
 router.get("/login-failure", (req, res) => {
   res.send("Something went wrong...");
 });
 
-//Persist user data after successful authentication
+/*
+  Logout
+*/
+router.get("/logout", (req, res) => {
+  req.session.destroy((error) => {
+    if (error) {
+      console.log("Error! Logging out...");
+    } else {
+      res.redirect("/");
+    }
+  });
+});
+
+/*
+  Persist user data after successful authentication
+*/
 passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
-//Retrieve user data from session
+/*
+  Retrieve user data from session
+*/
 passport.deserializeUser(async (id, done) => {
   try {
     const user = await User.findById(id);

@@ -12,12 +12,13 @@ const port = 3000 || process.env.PORT;
 
 app.use(
   session({
-    secret: "blahblah",
+    secret: "newsecret",
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
       mongoUrl: process.env.MONGODB_URI,
     }),
+    // cookie: { maxAge: new Date(Date.now() + 3600000) },
   })
 );
 
@@ -30,10 +31,10 @@ app.use(express.json());
 //Connect to DB
 connectDB();
 
-//Static Files
+//Public
 app.use(express.static("public"));
 
-//Engine
+//Main
 app.use(expressLayouts);
 app.set("layout", "./layouts/main");
 app.set("view engine", "ejs");
@@ -49,5 +50,5 @@ app.get("*", function (req, res) {
 });
 
 app.listen(port, () => {
-  console.log(`App listening to port ${port}`);
+  console.log(`Listening to port ${port}`);
 });
