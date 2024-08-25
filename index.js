@@ -40,7 +40,8 @@ app.use(express.static("public"));
 
 //Main
 app.use(expressLayouts);
-app.set("layout", "./layouts/main");
+const path = require("path");
+app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 //Routes
