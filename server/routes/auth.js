@@ -27,9 +27,11 @@ passport.use(
           done(null, user);
         } else {
           user = await User.create(newUser);
+          done(null, user);
         }
       } catch (error) {
         console.log(error);
+        done(error, null);
       }
     }
   )
