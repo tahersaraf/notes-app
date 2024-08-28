@@ -21,7 +21,10 @@ app.use(
     resave: false,
     saveUninitialized: true,
     store: sessionStore,
-    // cookie: { maxAge: new Date(Date.now() + 3600000) },
+    cookie: {
+      maxAge: 60 * 60 * 1000, // 60 minutes in milliseconds
+      rolling: true,
+    },
   })
 );
 
